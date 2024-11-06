@@ -10,7 +10,7 @@ df <- data.frame(
 df$negLog10P <- -log10(df$pValue)
 # 创建火山图
 ggplot(df, aes(x = log2FoldChange, y = negLog10P)) +
-  geom_point(aes(color = pValue < 0.05 & abs(log2FoldChange) > 1), size = 3) +  # 根据 pValue 和 log2FoldChange 来设定显著性
+geom_point(aes(color = pValue < 0.05 & abs(log2FoldChange) > 1), size = 3) +  # 根据 pValue 和 log2FoldChange 来设定显著性
   scale_color_manual(values = c("grey", "red")) +  # 非显著为灰色，显著的为红色
   labs(
     title = "Volcano Plot",
